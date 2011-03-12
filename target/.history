@@ -1,4 +1,0 @@
-compile
-sbt package
-package
-exit
