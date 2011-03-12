@@ -1,6 +1,7 @@
 import javax.servlet.http.{HttpServletRequest, HttpServletResponse}
 import javax.servlet.{ServletResponse, ServletRequest}
 import javax.enterprise.event.Observes
+import org.jboss.seam.servlet.event.Path
 
 /**
  * Created by Daniel Hinojosa
@@ -14,7 +15,7 @@ import javax.enterprise.event.Observes
 
 
 class ExampleServlet {
-  def observeRequest(@Observes request:ServletRequest, @Observes response:ServletResponse) {
+  def observeRequest(@Observes @Path("food") request:ServletRequest, response:ServletResponse) {
     response.setContentType("text/html");
     val out = response.getWriter();
     out.println("<HTML>");

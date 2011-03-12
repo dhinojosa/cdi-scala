@@ -1,2 +1,7 @@
 #External Dependencies
-#Mon Mar 07 13:54:33 MST 2011
+#Sat Mar 12 14:50:34 MST 2011
+/home/danno/development/cdi-scala/lib_managed/scala_2.8.1/provided/servlet-api-2.5.jar=src/main/scala/ExampleServlet.scala
+/home/danno/development/cdi-scala/lib_managed/scala_2.8.1/provided/seam-servlet-3.0.0.CR1.jar=src/main/scala/ExampleServlet.scala
+/home/danno/development/cdi-scala/lib_managed/scala_2.8.1/provided/cdi-api-1.0-SP4.jar=src/main/scala/ExampleServlet.scala
+/home/danno/development/cdi-scala/project/boot/scala-2.8.1/lib/scala-library.jar=src/main/scala/ExampleServlet.scala
+/home/danno/java/jdk1.6.0_20/jre/lib/rt.jar=src/main/scala/ExampleServlet.scala
