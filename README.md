@@ -34,4 +34,13 @@ Clone repository from this [repository](https://github.com/dhinojosa/cdi-scala) 
     % git clone git@github.com:dhinojosa/cdi-scala.git cdi-scala
     % cd cdi-scala
 
+Run *sbt update* to download dependencies
+
+    % sbt update
+
+Run *sbt package* to create war file
+
+    % sbt package
+
+Deploy war file located in `target/scala_2.8.1/cdi-scala_2.8.1-1.0.war` to either JBoss or Glassfish
 
