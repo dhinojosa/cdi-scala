@@ -26,3 +26,11 @@ Requirements
 * [Glassfish](http://glassfish.java.net/)
 * [Jboss Application Server](http://www.jboss.org/jbossas/)
 * [Git](http://http://git-scm.com/)
+
+Setup
+-----
+Clone repository from this [repository](git@github.com:dhinojosa/cdi-scala.git) or fork:
+
+`% git clone git@github.com:dhinojosa/cdi-scala.git cdi-scala
+ % cd cdi-scala`
+
