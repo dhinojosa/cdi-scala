@@ -14,7 +14,9 @@ This presentation is a case study on the compatibility strength of merging the S
 * Do Scala structures like implicit work in CDI?
 
 **Setup**
+
 Download the following:
+
 * [sbt](http://code.google.com/p/simple-build-tool/) 
 * [Glassfish](http://glassfish.java.net/)
 * [Jboss Application Server] http://www.jboss.org/jbossas/
