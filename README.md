@@ -24,8 +24,8 @@ Requirements
 * [Scala 2.8.1](http://www.scala-lang.org/downloads)
 * [sbt](http://code.google.com/p/simple-build-tool/) 
 * [Glassfish](http://glassfish.java.net/)
-* [Jboss Application Server](http://www.jboss.org/jbossas/)
-* [Git](http://http://git-scm.com/)
+* [JBoss Application Server](http://www.jboss.org/jbossas/)
+* [Git](http://git-scm.com/)
 
 Setup
 -----
