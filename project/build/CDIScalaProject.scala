@@ -10,7 +10,7 @@ class CDIScalaProject(info: ProjectInfo) extends DefaultWebProject(info) {
   val seamSolder = "org.jboss.seam.solder" % "seam-solder" % "3.0.0.CR1" % "provided"
   val seamFaces = "org.jboss.seam.faces" % "seam-faces" % "3.0.0.CR1" % "provided" withSources()
   val seamCatch = "org.jboss.seam.catch" % "seam-catch-impl" % "3.0.0.CR1" % "provided" withSources ()
-  val seamServletApi = "org.jboss.seam.servlet" % "seam-servlet" % "3.0.0.CR1" % "provided" withSources ()
+  val seamServlet = "org.jboss.seam.servlet" % "seam-servlet" % "3.0.0.CR1" withSources ()
   val jbossLogging = "org.jboss.logging" % "jboss-logging" % "3.0.0.Beta5" % "provided" withSources()
 
   val scalaCheck = "org.scala-tools.testing" % "scalacheck_2.8.0.RC1" % "1.7" % "test" withSources ()

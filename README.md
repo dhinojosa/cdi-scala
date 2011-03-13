@@ -1,4 +1,4 @@
-**Case Study: Functional Programming in Scala with CDI**   
+***Case Study: Functional Programming in Scala with CDI***   
 
 This presentation is a case study on the compatibility strength of merging the Scala programming language with CDI (JSR 299: Contexts and Dependency Injection for the Java EE platform [http://jcp.org/en/jsr/detail?id=299]).  CDI is a Dependency Injection framework that is inspired by the Seam, Spring, and Guice frameworks.  It integrates with technologies like JavaServer Faces (JSF) 2.0, Enterprise Java Beans (EJB) 3.1, the Java Persistence API (JPA) 2.0 and JAX-RS (Java API for RESTful Web Services) 1.1 and does so in a type-safe manner.  Scala and other functional programming languages depend heavily on type safety.  It is because of CDI’s type safety that this presentation will be valuable.  Goals for this presentation are to answer and demonstrate the following questions in an unbiased way:
 
@@ -12,3 +12,9 @@ This presentation is a case study on the compatibility strength of merging the S
 * Can integration and acceptance testing in Scala + CDI + Arquillian be used with popular Scala testing frameworks like ScalaTest, Specs, and ScalaCheck?
 * Can a CDI implementation work with SBT (Simple Build Tool) and how will it compare to Maven?
 * Do Scala structures like implicit work in CDI?
+
+**Setup**
+Download the following:
+* [sbt](http://code.google.com/p/simple-build-tool/) 
+* [Glassfish](http://glassfish.java.net/)
+* [Jboss Application Server] http://www.jboss.org/jbossas/
