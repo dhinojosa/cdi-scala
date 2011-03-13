@@ -31,8 +31,7 @@ Setup
 -----
 Clone repository from this [repository](https://github.com/dhinojosa/cdi-scala) or fork:
 
-`
-% git clone git@github.com:dhinojosa/cdi-scala.git cdi-scala
-% cd cdi-scala
-`
+    % git clone git@github.com:dhinojosa/cdi-scala.git cdi-scala
+    % cd cdi-scala
+
 
