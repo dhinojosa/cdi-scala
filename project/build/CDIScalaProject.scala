@@ -1,4 +1,4 @@
-import sbt.{DefaultWebProject, ProjectInfo, Path, FileFilter, SimpleFilter}
+import sbt.{DefaultWebProject, ProjectInfo, Path, FileFilter, SimpleFilter, Configuration}
 
 
 class CDIScalaProject(info: ProjectInfo) extends DefaultWebProject(info) {
@@ -7,9 +7,9 @@ class CDIScalaProject(info: ProjectInfo) extends DefaultWebProject(info) {
           "http://repository.jboss.org/nexus/content/groups/public"
 
   val jodaTime = "joda-time" % "joda-time" % "1.6.2" withSources ()
-  val seamFaces = "org.jboss.seam.faces" % "seam-faces" % "3.0.0.CR2" % "compile" withSources()
+  val seamFaces = "org.jboss.seam.faces" % "seam-faces" % "3.0.0.CR2" % "compile" withSources ()
   val seamCatch = "org.jboss.seam.catch" % "seam-catch" % "3.0.0.CR3" % "compile" withSources ()
-  val seamServlet = "org.jboss.seam.servlet" % "seam-servlet" % "3.0.0.CR3" % "compile" withSources()
+  val seamServlet = "org.jboss.seam.servlet" % "seam-servlet" % "3.0.0.CR3" % "compile" withSources ()
 
   val scalaCheck = "org.scala-tools.testing" % "scalacheck_2.8.0.RC1" % "1.7" % "test" withSources ()
   val scalaTest = "org.scalatest" % "scalatest" % "1.2" % "test" withSources ()
@@ -20,9 +20,7 @@ class CDIScalaProject(info: ProjectInfo) extends DefaultWebProject(info) {
   val weld = "javax.enterprise" % "cdi-api" % "1.0-SP4" % "provided"
   val weldServlet = "org.jboss.weld.servlet" % "weld-servlet" % "1.1.0.Final" % "provided"
 
-  //Keep the source files out of the war package
-  val webappClasspathFilter:FileFilter = new SimpleFilter({name => !(name.contains("sources"))})
-  override def webappClasspath = super.webappClasspath ** webappClasspathFilter
-
-
+  //  Workaround to keep source files out!
+  override def outputPattern = "[type]/[conf]/[artifact](-[revision])(-[classifier]).[ext]"
+  override def configurationPath(c: Configuration) = managedDependencyPath / "jar" / c.toString
 }
