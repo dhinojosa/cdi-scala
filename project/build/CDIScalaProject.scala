@@ -17,6 +17,7 @@ class CDIScalaProject(info: ProjectInfo) extends DefaultWebProject(info) {
   val specs = "org.scala-tools.testing" % "specs_2.8.0" % "1.6.5" % "test" withSources ()
 
   val javaxServlet = "javax.servlet" % "servlet-api" % "2.5" % "provided"
+  val jsf = "javax.faces" % "jsf-api" % "2.1" % "provided"
   val weld = "javax.enterprise" % "cdi-api" % "1.0-SP4" % "provided"
   val weldServlet = "org.jboss.weld.servlet" % "weld-servlet" % "1.1.0.Final" % "provided"
 
