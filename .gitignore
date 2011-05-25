@@ -3,6 +3,6 @@
 target/
 lib_managed/
 src_managed/
-project/boot/
+project/boot
 *.iml
 project/build/target/

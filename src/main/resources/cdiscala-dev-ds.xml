@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE datasources
+    PUBLIC "-//JBoss//DTD JBOSS JCA Config 1.5//EN"
+    "http://www.jboss.org/j2ee/dtd/jboss-ds_1_5.dtd">
+    
+<datasources>
+   <local-tx-datasource>
+      <jndi-name>cdiScalaDS</jndi-name>
+      <connection-url>jdbc:postgresql://localhost/cdiscala?ssl=true</connection-url>
+      <driver-class>com.mysql.jdbc.Driver</driver-class>
+      <user-name>root</user-name>
+      <password>root</password>
+<!-- 
+      <exception-sorter-class-name>
+         org.jboss.resource.adapter.jdbc.vendor.MySQLExceptionSorter
+      </exception-sorter-class-name>
+      <metadata>
+         <type-mapping>mySQL</type-mapping>
+      </metadata>
+-->
+   </local-tx-datasource>
+</datasources>

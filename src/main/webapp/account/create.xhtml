@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE composition
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                template="/layout/template.xhtml">
+    <ui:define name="title">Create Account</ui:define>
+    <ui:define name="body">
+        <h:form id="createAccountForm">
+            <div id="firstNameRow">
+                <h:outputLabel id="firstNameLabel" value="First Name"/>
+                <h:inputText id="firstName" value="#{newAccount.firstName}"/>
+            </div>
+
+            <div id="lastNameRow">
+                <h:outputLabel id="firstNameLabel" value="Last Name"/>
+                <h:inputText id="firstName" value="#{newAccount.lastName}"/>
+            </div>
+
+            <h:commandButton id="createAccountButton" value="#{entityManager.create(newAccount)}"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
