@@ -1,8 +1,8 @@
 package com.evolutionnext.cdiscala.account
 
-import javax.enterprise.context.RequestScoped
-import javax.inject.Named
 import reflect.BeanProperty
+import javax.inject.Named
+import javax.enterprise.context.ConversationScoped
 
 /**
  * Created by Daniel Hinojosa
@@ -13,9 +13,20 @@ import reflect.BeanProperty
  * email: <a href="mailto:dhinojosa@evolutionnext.com">dhinojosa@evolutionnext.com</a>
  * tel: 505.363.5832
  */
-@RequestScoped
-@Named
-class Account(@BeanProperty var firstName: String,
-              @BeanProperty var lastName: String) {
-  def this() = this ("Howie", "Long")
+
+@Named("newAccount")
+@ConversationScoped
+class Account(@BeanProperty var id: Long,
+              @BeanProperty var firstName: String,
+              @BeanProperty var lastName: String,
+              @BeanProperty var password: String) {
+
+              override def toString = "Account(%s, %s)".format(firstName, lastName)
+              override def equals(other:Any) = {
+                   if (!other.isInstanceOf[Account]) false
+                   val otherAccount = other.asInstanceOf[Account]
+                   otherAccount.firstName == this.firstName &&
+                   otherAccount.lastName == this.lastName
+              }
+              override def hashCode:Int = firstName.hashCode + lastName.hashCode + 33
 }
