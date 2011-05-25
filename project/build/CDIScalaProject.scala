@@ -27,10 +27,12 @@ class CDIScalaProject(info: ProjectInfo) extends DefaultWebProject(info) {
 
   val weld = "javax.enterprise" % "cdi-api" % "1.0-SP4" % "provided"
   val weldServlet = "org.jboss.weld.servlet" % "weld-servlet" % "1.1.0.Final" % "provided"
-
-  val javaxServletSpec = "org.jboss.spec.javax.servlet" % "jboss-servlet-api_3.0_spec" % "1.0.0.Final" % "provided" withSources ()
+  //
   val javaxPersistenceSpec = "org.hibernate.javax.persistence" % "hibernate-jpa-2.0-api" % "1.0.0.Final" % "provided" withSources ()
-  val javaeeAPI = "javax" % "javaee-api" % "6.0" % "provided"
+  val jbossSpec = "org.jboss.spec" % "jboss-javaee-6.0" % "1.0.0.Final" % "provided"
+
+  //  val javaxServletSpec = "org.jboss.spec.javax.servlet" % "jboss-servlet-api_3.0_spec" % "1.0.0.Final" % "provided" withSources ()
+  //  val javaeeAPI = "javax" % "javaee-api" % "6.0" % "provided"
 
   //  Workaround to keep source files out!
   override def outputPattern = "[type]/[conf]/[artifact](-[revision])(-[classifier]).[ext]"
