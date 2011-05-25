@@ -17,6 +17,7 @@ import org.joda.time.DateTime
  * tel: 505.363.5832
  */
 class TypedFinderTest extends WordSpec with MustMatchers {
+
   "find" should {
     "use the entityManager to find an element" in {
       val em = createMock(classOf[EntityManager])

@@ -1,7 +1,6 @@
 import sbt.{Configuration, ProjectInfo, DefaultWebProject}
-import reaktor.scct.ScctProject
 
-class CDIScalaProject(info: ProjectInfo) extends DefaultWebProject(info) with ScctProject {
+class CDIScalaProject(info: ProjectInfo) extends DefaultWebProject(info) {
   val scalaToolsRepository = "Scala-Tools Maven2 Repository" at "http://scala-tools.org/repo-releases"
   val jbossPublicRepository = "JBoss Public Maven Repository Group" at
           "http://repository.jboss.org/nexus/content/groups/public"
@@ -14,7 +13,7 @@ class CDIScalaProject(info: ProjectInfo) extends DefaultWebProject(info) with Sc
 
   val seamServlet = "org.jboss.seam.servlet" % "seam-servlet" % "3.0.0.Final" % "compile" withSources ()
   val scalaCheck = "org.scala-tools.testing" % "scalacheck_2.8.0.RC1" % "1.7" % "test" withSources ()
-  val scalaTest = "org.scalatest" % "scalatest" % "1.2" % "test" withSources ()
+  val scalaTest = "org.scalatest" % "scalatest_2.9.0" % "1.4.1" % "test" withSources ()
   val testNG = "org.testng" % "testng" % "5.14" % "test" withSources ()
   val specs = "org.scala-tools.testing" % "specs_2.8.0" % "1.6.5" % "test" withSources ()
 
