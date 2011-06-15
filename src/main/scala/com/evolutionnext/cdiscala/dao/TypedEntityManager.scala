@@ -1,6 +1,8 @@
 package com.evolutionnext.cdiscala.dao
 
 import javax.persistence.EntityManager
+import javax.enterprise.context.ConversationScoped
+import javax.inject.{Inject, Named}
 
 /**
  * Created by Daniel Hinojosa
@@ -12,17 +14,19 @@ import javax.persistence.EntityManager
  * tel: 505.363.5832
  */
 
-class TypedEntityManager[T](em: EntityManager) {
+//@ConversationScoped
+//@Named("typedEntityManager")
+class TypedEntityManager(@Inject var em: EntityManager) {
 
-  def persist(t: T)(m: Manifest[T]) {
+  def persist[T](t: T)(m: Manifest[T]) {
     em.persist(t)
   }
 
-  def update(t: T)(m: Manifest[T]) {
+  def update[T](t: T)(m: Manifest[T]) {
     em.flush()
   }
 
-  def delete(t: T)(m: Manifest[T]) {
+  def delete[T](t: T)(m: Manifest[T]) {
     em.remove(t)
   }
 }

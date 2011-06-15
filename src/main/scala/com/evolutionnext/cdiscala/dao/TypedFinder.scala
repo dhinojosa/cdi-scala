@@ -1,6 +1,8 @@
 package com.evolutionnext.cdiscala.dao
 
 import javax.persistence.{Query, EntityManager}
+import javax.inject.Inject
+import javax.enterprise.context.ConversationScoped
 
 /**
  * Created by Daniel Hinojosa
@@ -11,7 +13,12 @@ import javax.persistence.{Query, EntityManager}
  * email: <a href="mailto:dhinojosa@evolutionnext.com">dhinojosa@evolutionnext.com</a>
  * tel: 505.363.5832
  */
-class TypedFinder(em: EntityManager) {
+
+@ConversationScoped
+class TypedFinder @Inject() (entityManager: EntityManager) extends scala.Serializable {
+
+  def this() = this(null)
+
   def inferType(a: Any) = {
     a match {
       case x: Char => "Char"
@@ -28,18 +35,18 @@ class TypedFinder(em: EntityManager) {
 
   def resultList[T](fieldMap: Map[String, Any], queryString: String): Seq[T] = {
     import scala.collection.JavaConversions._
-    val query = em.createQuery(queryString)
+    val query = entityManager.createQuery(queryString)
     fieldMap.foreach {case (k: String, v: Any) => query.setParameter(k, v)}
     query.getResultList.toList.asInstanceOf[Seq[T]]
   }
 
   def singleResult[T](fieldMap: Map[String, Any], queryString: String):T = {
-    val query = em.createQuery(queryString)
+    val query = entityManager.createQuery(queryString)
     fieldMap.foreach {case (k: String, v: Any) => query.setParameter(k, v)}
     query.getSingleResult.asInstanceOf[T]
   }
 
   def find[E](id:Any)(implicit m:Manifest[E]):E = {
-    em.find(m.erasure.asInstanceOf[Class[E]], id)
+    entityManager.find(m.erasure.asInstanceOf[Class[E]], id)
   }
 }

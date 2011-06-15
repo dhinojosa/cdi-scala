@@ -13,15 +13,19 @@
         <h:form id="createAccountForm">
             <div id="firstNameRow">
                 <h:outputLabel id="firstNameLabel" value="First Name"/>
-                <h:inputText id="firstName" value="#{newAccount.firstName}"/>
+                <h:inputText id="firstName" value="#{blankAccount.firstName}"/>
             </div>
 
             <div id="lastNameRow">
-                <h:outputLabel id="firstNameLabel" value="Last Name"/>
-                <h:inputText id="firstName" value="#{newAccount.lastName}"/>
+                <h:outputLabel id="lastNameLabel" value="Last Name"/>
+                <h:inputText id="lastName" value="#{blankAccount.lastName}"/>
             </div>
 
-            <h:commandButton id="createAccountButton" value="#{entityManager.create(newAccount)}"/>
+            <h:outputLabel value="#{conversation.id}"/>
+
+            <h:commandButton id="createAccountButton" value="do it" action="#{accountBean.persist}" >
+                <f:param name="cid" value="#{conversation.id}"/>
+            </h:commandButton>
         </h:form>
     </ui:define>
 </ui:composition>

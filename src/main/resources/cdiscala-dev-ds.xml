@@ -7,7 +7,7 @@
 <datasources>
    <local-tx-datasource>
       <jndi-name>cdiScalaDS</jndi-name>
-      <connection-url>jdbc:postgresql://localhost/cdiscala?ssl=true</connection-url>
+      <connection-url>jdbc:mysql://localhost/cdiscala</connection-url>
       <driver-class>com.mysql.jdbc.Driver</driver-class>
       <user-name>root</user-name>
       <password>root</password>
