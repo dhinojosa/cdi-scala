@@ -1,0 +1,90 @@
+
+Fail:
+1. Case Classes
+2. Implicit Class Parameters (manifest on class)
+   class ClassTypedEntityManager[T] @Inject()(entityManager: EntityManager)(implicit manifest: Manifest[T]) {
+
+      def this() = this(null)(null)
+
+      def persist(t: T) {
+        println("Manifest" + manifest.erasure.getClass)
+        entityManager.persist(t)
+      }
+
+      def update(t: T) {
+        entityManager.flush()
+      }
+
+      def delete(t: T) {
+        entityManager.remove(t)
+      }
+   }
+
+    WELD-001408 Unsatisfied dependencies for type [Manifest<T>] with qualifiers [@Default]
+      at injection point [[parameter 2] of [constructor] @Inject
+       public com.evolutionnext.cdiscala.dao.ClassTypedEntityManager(EntityManager, Manifest<T>)]
+
+3. Implicit Method Parameters (manifest on method)
+
+   @ConversationScoped
+   @Named("typedEntityManager")
+   class TypedEntityManager @Inject() (var em: EntityManager) extends scala.Serializable {
+
+     def this() = this(null)
+
+     def persist[T](t: T)(implicit manifest:Manifest[T]){
+       println("Manifest" + manifest.erasure.getClass)
+       em.persist(t)
+     }
+
+     def update[T](t: T) {
+       em.flush()
+     }
+
+     def delete[T](t: T) {
+       em.remove(t)
+     }
+   }
+
+   javax.faces.el.MethodNotFoundException: javax.el.MethodNotFoundException: /typedaccount/create.xhtml @26,123 action="#{typedEntityManager.persist(blankAccount)}": Method persist not found
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:88)
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:98)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:311)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:781)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1246)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:77)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:97)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:114)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:308)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:324)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:242)
+	at org.jboss.weld.servlet.ConversationPropagationFilter.doFilter(ConversationPropagationFilter.java:67)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:274)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:242)
+	at org.jboss.seam.servlet.exception.CatchExceptionFilter.doFilter(CatchExceptionFilter.java:65)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:274)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:242)
+	at org.jboss.seam.servlet.event.ServletEventBridgeFilter.doFilter(ServletEventBridgeFilter.java:72)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:274)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:242)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:275)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.jboss.web.tomcat.security.SecurityAssociationValve.invoke(SecurityAssociationValve.java:181)
+	at org.jboss.modcluster.catalina.CatalinaContext$RequestListenerValve.event(CatalinaContext.java:285)
+	at org.jboss.modcluster.catalina.CatalinaContext$RequestListenerValve.invoke(CatalinaContext.java:261)
+	at org.jboss.web.tomcat.security.JaccContextValve.invoke(JaccContextValve.java:88)
+	at org.jboss.web.tomcat.security.SecurityContextEstablishmentValve.invoke(SecurityContextEstablishmentValve.java:100)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.jboss.web.tomcat.service.jca.CachedConnectionValve.invoke(CachedConnectionValve.java:158)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.jboss.web.tomcat.service.request.ActiveRequestResponseCacheValve.invoke(ActiveRequestResponseCacheValve.java:53)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:362)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:877)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:654)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:951)
+	at java.lang.Thread.run(Thread.java:679)
+Caused by: javax.el.MethodNotFoundException: /typedaccount/create.xhtml @26,123 action="#{typedEntityManager.persist(blankAccount)}": Method persist not found
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:106)
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:84)
+	... 36 more

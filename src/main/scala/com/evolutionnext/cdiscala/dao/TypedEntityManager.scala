@@ -14,19 +14,22 @@ import javax.inject.{Inject, Named}
  * tel: 505.363.5832
  */
 
-//@ConversationScoped
-//@Named("typedEntityManager")
-class TypedEntityManager(@Inject var em: EntityManager) {
+@ConversationScoped
+@Named("typedEntityManager")
+class TypedEntityManager @Inject() (var em: EntityManager) extends scala.Serializable {
 
-  def persist[T](t: T)(m: Manifest[T]) {
+  def this() = this(null)
+
+  def persist[T](t: T)(implicit manifest:Manifest[T]){
+    println("Manifest" + manifest.erasure.getClass)
     em.persist(t)
   }
 
-  def update[T](t: T)(m: Manifest[T]) {
+  def update[T](t: T) {
     em.flush()
   }
 
-  def delete[T](t: T)(m: Manifest[T]) {
+  def delete[T](t: T) {
     em.remove(t)
   }
 }

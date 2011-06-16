@@ -15,13 +15,6 @@ import javax.persistence.{PersistenceUnit, EntityManagerFactory}
  * tel: 505.363.5832
  */
 class DataSourceProducer {
-//
-//    @Produces
-//    @ConversationScoped
-//    @ExtensionManaged
-//    def produceEntityManagerFactory(@PersistenceUnit(name = "cdiscalaPU") entityManagerFactory:EntityManagerFactory):EntityManagerFactory =
-//      entityManagerFactory
-
 
   @ExtensionManaged
   @Produces
