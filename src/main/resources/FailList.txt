@@ -88,3 +88,16 @@ Caused by: javax.el.MethodNotFoundException: /typedaccount/create.xhtml @26,123 
 	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:106)
 	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:84)
 	... 36 more
+
+4.  Case Classes: Due to creation of multiple static methods.  (Not even recognized)
+               @Entity
+               case class Entry(@(Id@beanGetter)
+                 @(GeneratedValue@beanGetter)(strategy = GenerationType.AUTO)
+                 @BeanProperty
+                 id: Long,
+                 @BeanProperty
+                 title: String)
+
+5. Objects do not work
+
+6. Lazy public vals don't work, they have to be made private and accessed.
