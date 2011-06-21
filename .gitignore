@@ -6,3 +6,4 @@ src_managed/
 project/boot
 *.iml
 project/build/target/
+test-output/

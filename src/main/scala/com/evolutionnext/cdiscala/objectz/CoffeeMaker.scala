@@ -13,8 +13,7 @@ import javax.inject.Named
  * tel: 505.363.5832
  */
 
-@ConversationScoped
-@Named
+
 object CoffeeMaker extends Serializable {
    def brewKona() = new Coffee("Kona")
 }

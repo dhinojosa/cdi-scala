@@ -1,5 +1,9 @@
 package com.evolutionnext.cdiscala.structuraltypes
 
+import javax.inject.Named
+import javax.enterprise.context.ConversationScoped
+import reflect.BeanProperty
+
 /**
  * Created by Daniel Hinojosa
  * User: Daniel Hinojosa
@@ -9,6 +13,13 @@ package com.evolutionnext.cdiscala.structuraltypes
  * email: <a href="mailto:dhinojosa@evolutionnext.com">dhinojosa@evolutionnext.com</a>
  * tel: 505.363.5832
  */
-class AgileIteration {
 
+
+class AgileIteration (@BeanProperty var job:String, @BeanProperty var customer:String) extends Serializable {
+
+    @BeanProperty var status:String  = _
+
+    def this() = this("", "")
+
+    def complete(msg:String) { println("completing iteration" + job); status = msg}
 }

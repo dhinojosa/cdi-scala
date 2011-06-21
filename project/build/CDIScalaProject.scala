@@ -12,11 +12,14 @@ class CDIScalaProject(info: ProjectInfo) extends DefaultWebProject(info) {
   val seamPersistence = "org.jboss.seam.persistence" % "seam-persistence" % "3.0.0.Final" % "compile" withSources ()
   val jsfFacelets = "com.sun.facelets" % "jsf-facelets" % "1.1.15" % "compile" withSources ()
 
+  val arquillianVersion = "1.0.0.Alpha5"
+
   val seamServlet = "org.jboss.seam.servlet" % "seam-servlet" % "3.0.0.Final" % "compile" withSources ()
   val scalaCheck = "org.scala-tools.testing" % "scalacheck_2.8.0.RC1" % "1.7" % "test" withSources ()
   val scalaTest = "org.scalatest" % "scalatest_2.9.0" % "1.4.1" % "test" withSources ()
   val testNG = "org.testng" % "testng" % "5.14" % "test" withSources ()
   val specs = "org.scala-tools.testing" % "specs_2.8.0" % "1.6.5" % "test" withSources ()
+  val arquillian = "org.jboss.arquillian" % "arquillian-testng" % arquillianVersion % "test" withSources()
 
   val easyMock = "org.easymock" % "easymock" % "3.0" % "test" withSources ()
   val javaxServlet = "javax.servlet" % "servlet-api" % "2.5" % "provided"
@@ -31,6 +34,29 @@ class CDIScalaProject(info: ProjectInfo) extends DefaultWebProject(info) {
   //
   val javaxPersistenceSpec = "org.hibernate.javax.persistence" % "hibernate-jpa-2.0-api" % "1.0.0.Final" % "provided" withSources ()
   val jbossSpec = "org.jboss.spec" % "jboss-javaee-6.0" % "1.0.0.Final" % "provided"
+
+  val jboss6arquillian = "org.jboss.arquillian.container" % "arquillian-jbossas-remote-6" % arquillianVersion % "test"
+  //val jboss6client = "org.jboss.jbossas" % "jboss-as-client" % "6.0.0.Final" % "test"
+  val jbossAsProfileService =  "org.jboss.jbossas" % "jboss-as-profileservice-client" % "6.0.0.Final" % "test"
+  val jbossDeployer = "org.jboss.deployers" % "jboss-deployers-client-spi" % "2.2.1.GA" % "test"
+//                </dependency>
+//                <dependency>
+//                    <groupId>org.jboss.spec</groupId>
+//                    <artifactId>jboss-javaee-6.0</artifactId>
+//                    <type>pom</type>
+//                </dependency>
+//                <dependency>
+//                    <groupId>org.jboss.jbossas</groupId>
+//                    <artifactId>jboss-as-profileservice-client</artifactId>
+//                    <type>pom</type>
+//                </dependency>
+//                <!-- jboss-deployers-client-spi provides deployment exception class -->
+//                <dependency>
+//                    <groupId>org.jboss.deployers</groupId>
+//                    <artifactId>jboss-deployers-client-spi</artifactId>
+//                    <version>2.2.0.GA</version>
+//                    <scope>test</scope>
+//                </dependency>
 
   //  val javaxServletSpec = "org.jboss.spec.javax.servlet" % "jboss-servlet-api_3.0_spec" % "1.0.0.Final" % "provided" withSources ()
   //  val javaeeAPI = "javax" % "javaee-api" % "6.0" % "provided"

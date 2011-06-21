@@ -17,8 +17,13 @@ import reflect.BeanProperty
 @Named
 class LazyBean extends Serializable {
 
-  private val originalNumberOfBeers = {println("Updating"); 1}
+  println("Initializing Lazy Bean")
 
-  def getNumberOfBeers = originalNumberOfBeers + 2
+  private lazy val originalNumberOfBeers  =
+     {println("Updating"); 30}
 
+  def getNumberOfBeers = {
+   println("getNumberOfBeers")
+   originalNumberOfBeers
+  }
 }

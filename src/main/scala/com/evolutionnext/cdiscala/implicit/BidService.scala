@@ -1,6 +1,4 @@
-package com.evolutionnext.cdiscala.implicit
-
-implicit
+package com.evolutionnext.cdiscala
 
 /**
  * Created by Daniel Hinojosa
@@ -11,6 +9,9 @@ implicit
  * email: <a href="mailto:dhinojosa@evolutionnext.com">dhinojosa@evolutionnext.com</a>
  * tel: 505.363.5832
  */
-class BidService {
 
+class BidService {
+    def addBid(float:Float) {
+      println("added bid")
+    }
 }

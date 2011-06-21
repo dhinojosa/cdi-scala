@@ -1,6 +1,4 @@
-package com.evolutionnext.cdiscala.implicit
-
-implicit
+package com.evolutionnext.cdiscala.`implicit`
 
 /**
  * Created by Daniel Hinojosa

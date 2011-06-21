@@ -1,5 +1,8 @@
 package com.evolutionnext.cdiscala.structuraltypes
 
+import javax.inject.{Inject, Named}
+import javax.enterprise.context.{Conversation, ConversationScoped}
+
 /**
  * Created by Daniel Hinojosa
  * User: Daniel Hinojosa
@@ -9,6 +12,17 @@ package com.evolutionnext.cdiscala.structuraltypes
  * email: <a href="mailto:dhinojosa@evolutionnext.com">dhinojosa@evolutionnext.com</a>
  * tel: 505.363.5832
  */
-class CompletionService {
 
+@ConversationScoped
+@Named
+class CompletionService @Inject() (val conversation:Conversation) extends Serializable {
+
+
+  type Completable = {def complete(msg:String)}
+
+  def this() = this(null)
+
+  def complete(completable:Completable) {
+     completable.complete("Processing this object from Completion Service")
+  }
 }
