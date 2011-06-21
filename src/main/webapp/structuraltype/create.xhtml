@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE composition
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                template="/layout/template.xhtml">
+    <ui:define name="title">Create Agile Iteration</ui:define>
+    <ui:define name="body">
+        <h:form id="createAgileIterationForm">
+            <div id="jobRow">
+                <h:outputLabel id="jobLabel" value="Job"/>
+                <h:inputText id="job" value="#{newAgileIteration.job}"/>
+            </div>
+
+            <div id="customerRow">
+                <h:outputLabel id="customerLabel" value="Customer"/>
+                <h:inputText id="customer" value="#{newAgileIteration.customer}"/>
+            </div>
+
+            <h:outputText value="The current completion status: #{newAgileIteration.status}"/> <br/>
+
+            <h:commandButton id="createAgileIterationButton"
+                             value="Create Agile Iteration"
+                             action="#{completionService.complete(newAgileIteration)}">
+            </h:commandButton>
+        </h:form>
+    </ui:define>
+</ui:composition>
