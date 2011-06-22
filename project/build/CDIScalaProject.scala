@@ -17,7 +17,8 @@ class CDIScalaProject(info: ProjectInfo) extends DefaultWebProject(info) {
   val seamServlet = "org.jboss.seam.servlet" % "seam-servlet" % "3.0.0.Final" % "compile" withSources ()
   val scalaCheck = "org.scala-tools.testing" % "scalacheck_2.8.0.RC1" % "1.7" % "test" withSources ()
   val scalaTest = "org.scalatest" % "scalatest_2.9.0" % "1.4.1" % "test" withSources ()
-  val testNG = "org.testng" % "testng" % "5.14" % "test" withSources ()
+  val testNG = "org.testng" % "testng" % "5.14.6" % "test" withSources ()
+//  val guiceInject = "com.google.inject" % "guice" % "2.0" % "test" withSources ()
   val specs = "org.scala-tools.testing" % "specs_2.8.0" % "1.6.5" % "test" withSources ()
   val arquillian = "org.jboss.arquillian" % "arquillian-testng" % arquillianVersion % "test" withSources()
 
